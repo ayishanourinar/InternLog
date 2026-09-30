@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — InternLog</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563eb'/><text x='16' y='22' font-family='system-ui,sans-serif' font-weight='800' font-size='16' fill='white' text-anchor='middle'>IL</text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+<body>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar" aria-label="Student navigation">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">IL</span><span>InternLog</span></a>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="applications.html">My Applications</a>
+        <a href="../company/internships.html">Browse Internships</a>
+        <a href="add-application.html">Add Application</a>
+        <a href="profile.html">Profile</a>
+      </nav>
+      <div class="side-foot"><nav><a href="../index.html" data-logout>Logout</a></nav></div>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+        <h1>Dashboard</h1>
+        <div class="spacer"></div>
+        <div class="user-chip">
+          <span class="avatar" data-avatar>U</span>
+          <span><strong data-user-name>Student</strong><br><span class="muted" data-user-email></span></span>
+        </div>
+      </header>
+      <main class="content">
+        <p class="muted">Welcome back, <strong data-user-name>Student</strong>. Here is your internship progress overview.</p>
+        <div class="stat-grid" id="userStats" aria-label="Application statistics"></div>
+        <div class="grid-2">
+          <section class="card" aria-label="Status overview">
+            <h3>Application Status Overview</h3>
+            <p class="muted">Derived live from your current internship applications.</p>
+            <div class="status-bars" id="statusOverview"></div>
+          </section>
+          <section class="card" aria-label="Upcoming interviews">
+            <h3>Upcoming Interviews</h3>
+            <div id="upcomingList"><p class="muted">Loading…</p></div>
+            <p style="margin-top:14px"><a class="btn btn-secondary btn-sm" href="applications.html">View all applications</a></p>
+          </section>
+        </div>
+        <section class="card" style="margin-top:18px" aria-label="Internship opportunities">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+            <div><h3 style="margin:0 0 5px">Find company-posted opportunities</h3><p class="muted" style="margin:0">Browse published internships and apply directly from the opportunity board.</p></div>
+            <a class="btn btn-secondary btn-sm" href="../company/internships.html">Browse Internships</a>
+          </div>
+        </section>
+        <section class="card" style="margin-top:18px" aria-label="Recent applications">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <h3 style="margin:0">Recent Applications</h3>
+            <a class="btn btn-sm" href="add-application.html">+ Add Internship</a>
+          </div>
+          <div class="table-wrap" id="recentTable">
+            <table>
+              <thead><tr><th>Company</th><th>Internship Role</th><th>Applied Date</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="recentBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Application details">
+    <div class="modal"><div id="modalBody"></div></div>
+  </div>
+</body>
+</html>
